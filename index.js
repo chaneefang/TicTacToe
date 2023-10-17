@@ -37,7 +37,7 @@ io.on("connection",(socket)=>{ // to get the name of the user
           p1:p1obj, // p1 references p1obj
           p2: p2obj
         }
-        playingArray.push(obj) to add object to end of playing array to show who is playing
+        playingArray.push(obj) // to add object to end of playing array to show who is playing
 
         arr.splice(0,2) // removes elements starting from index 0
 
