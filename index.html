@@ -217,6 +217,15 @@ document.getElementById("oppName").innerText=oppName
 document.getElementById("value").innerText=value
 })
 
+document.querySelectorAll(".btn").forEach(e=>{
+  e.addEventListener("click",function(){
+    let value= document.getElementById("value").innerText
+    e.innerText=value
+
+    socket.emit("playing",{value:value,id:e.id,name:name}) // to get ID of buttons and pass to backend
+  })
+})
+
   </script>
 
 </html>
