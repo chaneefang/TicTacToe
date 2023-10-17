@@ -147,10 +147,10 @@
     </div>
 
   </body>
-  <script src="/socket.io/socket.io.js"></script>
 
-  <script>
+   <script src="/socket.io/socket.io.js">
 
+    
     document.getElementById("loading").style.display="none"
     document.getElementById("bigCont").style.display="none"
     document.getElementById("userCont").style.display="none"
@@ -158,7 +158,7 @@
     document.getElementById("valueCont").style.display="none"
     document.getElementById("whosTurn").style.display="none"
     
-    const socket=io();
+     const socket=io();
 
     // For click function to store users name
     let name;
@@ -185,7 +185,7 @@
 
 
   let allPlayersArray = e.allPlayers
-console.log("html",allPlayersArray) // log extracted allPlayersArray to console
+  console.log("html",allPlayersArray) // log extracted allPlayersArray to console
 
 if (name != '') {
     document.getElementById("userCont").style.display = "block"
