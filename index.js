@@ -57,6 +57,15 @@ io.on("connection",(socket)=>{ // to get the name of the user
       objToChange.p1.p1move=e.id 
       objToChange.sum++
     }
+
+    else if(e.value=="O"){
+      let objToChange=playingArray.find(obj=>obj.p2.p2name===e.name)
+
+      objToChange.p2.p2move=e.id 
+      objToChange.sum++
+    }
+
+    io.emit("playing",{allPlayers:playingArray})
   })
 
 })
