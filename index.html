@@ -181,6 +181,41 @@
     }
   })
 
+  socket.on("find", (e)=>{
+
+
+  let allPlayersArray = e.allPlayers
+console.log("html",allPlayersArray)
+
+if (name != '') {
+    document.getElementById("userCont").style.display = "block"
+    document.getElementById("oppNameCont").style.display = "block"
+    document.getElementById("valueCont").style.display = "block"
+    document.getElementById("loading").style.display = "none"
+    document.getElementById("name").style.display = "none"
+    document.getElementById("find").style.display = "none"
+    document.getElementById("enterName").style.display = "none"
+    document.getElementById("bigcont").style.display = "block"
+    document.getElementById("whosTurn").style.display = "block"
+    document.getElementById("whosTurn").innerText = "X's Turn"
+}
+
+let oppName
+let value 
+
+const foundObj=allPlayersArray.find(obj=>obj.p1.p1name=='${name}' || obj.p2.p2name=='${name}') // search whole array and object for name
+// foundObj.p1.p1name: foundObj is top level data for domain, p1 is property of player1, p1name is property of p1 object, for easy access to specific info within object
+foundObj.p1.p1name=='${name}' ? oppname=foundObj.p2.p2name : oppname=foundObj.p1.p1name 
+// to check whether value of p1name of object foundObj.p1 is equal to value of string(element name), which is a variable
+// true, p2 name will be assigned to oppname
+// false, assign foundObj.p1.p1name to oppname 
+foundObj.p1.p1name=='${name}' ? value=foundObj.p2.p2value : value=foundObj.p1.p1value
+// for attribute X or O for players
+
+document.getElementById("oppName").innerText=oppName
+document.getElementById("value").innerText=value
+})
+
   </script>
 
 </html>

@@ -41,7 +41,8 @@ io.on("connection",(socket)=>{ // to get the name of the user
 
         arr.splice(0,2) // removes elements starting from index 0
 
-        io.emit("find",{allPlayers:playingArray}) // find object in socket.io library
+        io.emit("find",{allPlayers:playingArray}) // sends object as event payload to socket.io which contains property allPlayers
+        // sends data to the server which can then be processed by server
       }
     }
   })
