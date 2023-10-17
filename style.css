@@ -6,9 +6,9 @@ padding:0;
 } 
 
 /* for the tictactoe grid */
-/* I used dark grey as it contrasts well with white */
+/* I used white as it is simple to find a contrasting color */
 body {
-  background-color: rgb(36,36,36);
+  background-color: rgb(255, 255, 255);
   display: grid;
   place-items: center;
 }
@@ -38,7 +38,7 @@ img {
 #cont {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  border: 2px solid red;
+  border: 2px solid black;
 }
 
 .btn {
