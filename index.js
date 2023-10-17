@@ -68,6 +68,11 @@ io.on("connection",(socket)=>{ // to get the name of the user
     io.emit("playing",{allPlayers:playingArray})
   })
 
+socket.on("gameOver",(e)=>{ // after game is over, array for two players will be deleted
+  playingArray=playingArray.filter(obj=>obj.p1.p1name!==e.name)
+  console.log(playingArray)
+})
+
 })
 
 app.get("/",(req,res)=>{
