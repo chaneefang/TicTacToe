@@ -34,7 +34,7 @@
   }
 
   img {
-    width: 40px;
+    width: 50px;
   }
 
   /* Search for player button */
@@ -79,7 +79,7 @@
     cursor: pointer;
     padding: 7px;
     border-radius: 10px;
-    width: 250px;
+    width: 320px;
     background-color: rgb(0, 0, 0);
   }
 
@@ -224,6 +224,34 @@ document.querySelectorAll(".btn").forEach(e=>{
 
     socket.emit("playing",{value:value,id:e.id,name:name}) // to get ID of buttons and pass to backend
   })
+})
+
+socket.on("playing",(e)=>{
+  const foundObj=(e.allPlayers).find(obj=>obj.p1.p1name=='${name}' || obj.p2.p2name=='${name}');
+
+  p1id=foundObj.p1.p1move
+  p2id.foundObj.p2.p2move
+
+  if((foundObj.sum)%2==0){ //when even it is O's turn when odd it is X's turn
+    document.getElementById("whosTurn").innerText="O's Turn"
+  }
+
+  else { 
+    document.getElementById("whosTurn").innerText="X's Turn"
+  }
+
+  if(p1id!=''){
+    document.getElementById('${p1id}').innerText="X" // if one player press button itll appear on the opponent
+    document.getElementById('${p1id}').disabled=true
+    document.getElementById('${p1id}').style.color="black"
+  }
+
+  if(p2id!=''){
+    document.getElementById('${p2id}').innerText="O" 
+    document.getElementById('${p2id}').disabled=true
+    document.getElementById('${p2id}').style.color="black"
+  }
+
 })
 
   </script>
