@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Tic-Tac-Toe</h1>
+
+    <div>
+
+      <p id="userCont">You: <span id="user"></span> </p>
+      <p id="oppNameCont">Opponent: <span id="oppName"></span> </p>
+
+    </div>
+    <br>
+
+    <p id="valueCont">You are playing as <span id="value"></span></p>
+    <br>
+    <p id="whosTurn">X's Turn</p>
+
+    <div>
+      <p id="enterName">Enter your Name: </p>
+      <input type="text" placeholder="Name" id="name" autocomplete="off"> 
+      <!-- prevents browser from predicting value from previous input data-->
+    </div>
+
+    <button ip="find">Search for a player</button>
+    <img src="loading.gif" id="loading" alt="">
+  </body>
+</html>
