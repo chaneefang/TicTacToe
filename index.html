@@ -44,9 +44,9 @@
     color: white;
     font-weight: bold;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 10px;
     background-color: rgb(0, 0, 0);
-    border-radius: 5px;
+    border-radius: 10px;
   }
 
   /* Enter your name button */
@@ -106,19 +106,27 @@
       <p style="position: absolute; right:0;" id="oppNameCont">Opponent: <span id="oppName"></span> </p>
     </div>
 
+    <br>
+
     <div>
-      <p style="font-size:1.2rem;" id="enterName">Enter your Name: </p>
+      <p style="font-size:1.9rem;" id="enterName">Enter your Name: </p>
 
       <input type="text" placeholder="Name" id="name" autocomplete="off"> 
       <!-- prevents browser from predicting value from previous input data-->
-      <button ip="find">Search for a player</button>
-      <img src="loading.gif" id="loading" alt="">
     </div>
 
+    <br>
+    
+    <button ip="find">Search for a player</button>
+      <img src="loading.gif" id="loading" alt="">
+    <br>
+
     <p id="valueCont">You are playing as: <span id="value"></span></p>
+
     <br>
+    <br>
+
     <p id="whosTurn">X's Turn</p>
-    <br>
 
     <div id="bigCont">
 
@@ -144,12 +152,35 @@
   <script>
 
     document.getElementById("loading").style.display="none"
-    document.getElementById("bigcont").style.display="none"
+    document.getElementById("bigCont").style.display="none"
     document.getElementById("userCont").style.display="none"
     document.getElementById("oppNameCont").style.display="none"
     document.getElementById("valueCont").style.display="none"
     document.getElementById("whosTurn").style.display="none"
     
+    const socket=io();
+
+    // For click function to store users name
+    let name;
+
+    document.getElementById("find").addEventListener("click",function(){ // to listen for element with id "find", wait for click on element and execute code 
+      name=document.getElementById("name").value // retrieve value entered in html input element name and assign to name "variable"
+
+      document.getElementById("user").innerText=name // set ID of user to value stored in name variable
+
+      if(name==null || name==''){ // if no name
+      alert("Please enter a name")
+    }
+
+    else {
+      // pass name to backend for socket io for processing 
+      socket.emit("find",{name:name})
+
+      document.getElementById("loading").style.display="block" // select loading gif  and show display properties
+      document.getElementById("find").disabled=true; // button to become unclickable to prevent users from clicking a button many times
+    }
+  })
+
   </script>
 
 </html>
