@@ -49,6 +49,16 @@ io.on("connection",(socket)=>{ // to get the name of the user
       }
     }
   })
+
+  socket.on("playing",(e)=>{
+    if(e.value=="X"){
+      let objToChange=playingArray.find(obj=>obj.p1.p1name===e.name)
+
+      objToChange.p1.p1move=e.id 
+      objToChange.sum++
+    }
+  })
+
 })
 
 app.get("/",(req,res)=>{
