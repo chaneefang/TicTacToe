@@ -35,7 +35,8 @@ io.on("connection",(socket)=>{ // to get the name of the user
 
         let obj={ // let object obj act as container for two properties p1 and p2
           p1:p1obj, // p1 references p1obj
-          p2: p2obj
+          p2: p2obj,
+          sum:1
         }
         playingArray.push(obj) // to add object to end of playing array to show who is playing
 

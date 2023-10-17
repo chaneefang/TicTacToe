@@ -83,7 +83,7 @@
     background-color: rgb(0, 0, 0);
   }
 
-  .btn.hover {
+  .btn:hover {
     background-color: rgb(161,153,153);
   }
 
@@ -117,7 +117,7 @@
 
     <br>
     
-    <button ip="find">Search for a player</button>
+    <button id="find">Search for a player</button>
       <img src="loading.gif" id="loading" alt="">
     <br>
 
@@ -163,14 +163,14 @@
     // For click function to store users name
     let name;
 
-    document.getElementById("find").addEventListener("click",function(){ // to listen for element with id "find", wait for click on element and execute code 
+    document.getElementById('find').addEventListener("click",function(){ // to listen for element with id "find", wait for click on element and execute code 
       name=document.getElementById("name").value // retrieve value entered in html input element name and assign to name "variable"
 
       document.getElementById("user").innerText=name // set ID of user to value stored in name variable
 
       if(name==null || name==''){ // if no name
       alert("Please enter a name")
-    }
+      }
 
     else {
       // pass name to backend for socket io for processing 
@@ -181,11 +181,11 @@
     }
   })
 
-  socket.on("find", (e)=>{
+  socket.on("find", (e)=>  { // listening for find event data with allPlayers to execute code
 
 
   let allPlayersArray = e.allPlayers
-console.log("html",allPlayersArray)
+console.log("html",allPlayersArray) // log extracted allPlayersArray to console
 
 if (name != '') {
     document.getElementById("userCont").style.display = "block"
@@ -195,7 +195,7 @@ if (name != '') {
     document.getElementById("name").style.display = "none"
     document.getElementById("find").style.display = "none"
     document.getElementById("enterName").style.display = "none"
-    document.getElementById("bigcont").style.display = "block"
+    document.getElementById("bigCont").style.display = "block"
     document.getElementById("whosTurn").style.display = "block"
     document.getElementById("whosTurn").innerText = "X's Turn"
 }
@@ -203,9 +203,10 @@ if (name != '') {
 let oppName
 let value 
 
-const foundObj=allPlayersArray.find(obj=>obj.p1.p1name=='${name}' || obj.p2.p2name=='${name}') // search whole array and object for name
+const foundObj=allPlayersArray.find(obj=>obj.p1.p1name=='${name}' || obj.p2.p2name=='${name}'); // search whole array and object for name
 // foundObj.p1.p1name: foundObj is top level data for domain, p1 is property of player1, p1name is property of p1 object, for easy access to specific info within object
-foundObj.p1.p1name=='${name}' ? oppname=foundObj.p2.p2name : oppname=foundObj.p1.p1name 
+
+foundObj.p1.p1name=='${name}' ? oppName=foundObj.p2.p2name : oppName=foundObj.p1.p1name 
 // to check whether value of p1name of object foundObj.p1 is equal to value of string(element name), which is a variable
 // true, p2 name will be assigned to oppname
 // false, assign foundObj.p1.p1name to oppname 
