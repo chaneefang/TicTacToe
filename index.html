@@ -205,11 +205,11 @@
     }
 
   socket.on("find", (e)=>  { // listening for find event data with allPlayers to execute code
+    let allPlayersArray = e.allPlayers
+    console.log("html",allPlayersArray) // log extracted allPlayersArray to console
+  }) //additional one to change from the top for DOMContentLoaded
 
-    }) //additional one to change from the top for DOMContentLoaded
-
-  let allPlayersArray = e.allPlayers
-  console.log("html",allPlayersArray) // log extracted allPlayersArray to console
+  
 
 if (name != '') {
     document.getElementById("userCont").style.display = "block"
@@ -228,14 +228,14 @@ if (name != '') {
 let oppName
 let value 
 
-const foundObj=allPlayersArray.find(obj=>obj.p1.p1name=='${name}' || obj.p2.p2name=='${name}'); // search whole array and object for name
+const foundObj=allPlayersArray.find(obj=>obj.p1.p1name==name || obj.p2.p2name==name); // search whole array and object for name
 // foundObj.p1.p1name: foundObj is top level data for domain, p1 is property of player1, p1name is property of p1 object, for easy access to specific info within object
 
-foundObj.p1.p1name=='${name}' ? oppName=foundObj.p2.p2name : oppName=foundObj.p1.p1name 
+foundObj.p1.p1name==name ? oppName=foundObj.p2.p2name : oppName=foundObj.p1.p1name 
 // to check whether value of p1name of object foundObj.p1 is equal to value of string(element name), which is a variable
 // true, p2 name will be assigned to oppname
 // false, assign foundObj.p1.p1name to oppname 
-foundObj.p1.p1name=='${name}' ? value=foundObj.p2.p2value : value=foundObj.p1.p1value
+foundObj.p1.p1name==name ? value=foundObj.p2.p2value : value=foundObj.p1.p1value
 // for attribute X or O for players
 
 document.getElementById("oppName").innerText=oppName
@@ -247,6 +247,9 @@ document.querySelectorAll(".btn").forEach(e=>{
     let value= document.getElementById("value").innerText
     e.innerText=value
 
+    console.log(value)
+    console.log(e.innerText)
+
     socket.emit("playing",{value:value,id:e.id,name:name}) // to get ID of buttons and pass to backend
   })
 })
@@ -254,10 +257,12 @@ document.querySelectorAll(".btn").forEach(e=>{
      
 
 socket.on("playing",(e)=>{
-  const foundObj=(e.allPlayers).find(obj=>obj.p1.p1name=='${name}' || obj.p2.p2name=='${name}');
+  
+  const foundObj=e.allPlayers.find(obj=>obj.p1.p1name==name || obj.p2.p2name==name);
+  console.log(foundObj);
 
   p1id=foundObj.p1.p1move
-  p2id.foundObj.p2.p2move
+  p2id=foundObj.p2.p2move
 
   if((foundObj.sum)%2==0){ //when even it is O's turn when odd it is X's turn
     document.getElementById("whosTurn").innerText="O's Turn"
@@ -279,7 +284,7 @@ socket.on("playing",(e)=>{
     document.getElementById('${p2id}').style.color="black"
   }
 
-  check(name,foundObject.sum) // to make sure whenever someone clicks button then it will check for winner
+  check(name,foundObj.sum) // to make sure whenever someone clicks button then it will check for winner
 
 })
 
