@@ -17,3 +17,6 @@ This project includes the following files
 
 Git Clone
 https://github.com/chaneefang/TicTacToe.git
+I had ran on terminal powershell:
+1. npm i express http nodemon socket.io
+2. nodemon index
