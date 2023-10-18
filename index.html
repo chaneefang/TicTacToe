@@ -88,7 +88,7 @@
   }
 
   button.enabled {
-    opacity: 1;
+    opacity: 0.7;
   }
 
   p {
@@ -96,10 +96,21 @@
     font-weight: bold;
   }
 
+  .micbtn {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    place-items: center;
+  }
+
   </style>
   
   <body>
     <h1>Tic-Tac-Toe</h1>
+
+    <div class="micbtn">
+      <img class="microphone" src="microphone.jpeg">
+    </div>
 
     <div style="display: flex; width: 95vw; position: relative;">
       <p id="userCont">You: <span id="user"></span> </p>
@@ -148,7 +159,7 @@
 
   </body>
 
-   <script src="C:\Users\chaneefang\OneDrive - Singapore Polytechnic\Documents\TicTacToe\TicTacToe\node_modules\socket.io\client-dist\socket.io.js"></script>
+  <script src="./node_modules/socket.io/client-dist/socket.io.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function(){
@@ -228,8 +239,6 @@ document.querySelectorAll(".btn").forEach(e=>{
   })
 })
 
-})
-
      
 
 socket.on("playing",(e)=>{
@@ -304,9 +313,9 @@ setTimeout(() => {
     }, 5000)
 
 }, 100)
-}
-  }
-
+      }
+    }
+  })
   </script>
 
 </html>

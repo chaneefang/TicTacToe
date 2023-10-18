@@ -33,7 +33,7 @@ button{
 }
 
 img {
-  width: 40px;
+  width: 50px;
 }
 
 #cont {
@@ -56,5 +56,20 @@ img {
 /* Greater contrast by having a lighter gray color for hover so
 they can see better where they are clicking */
 .btn:hover {
-  background-color: rgb(161, 153, 153)
+  background-color: rgb(161, 153, 153);
+}
+
+.micbtn {
+  width:80px;
+  height: 80px;
+  place-items: center;
+  cursor: pointer;
+}
+
+.micbtn:hover {
+  opacity: 0.9;
+}
+
+.micbtn:active {
+  opacity: 0.5;
 }
