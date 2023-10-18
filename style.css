@@ -59,17 +59,29 @@ they can see better where they are clicking */
   background-color: rgb(161, 153, 153);
 }
 
-.micbtn {
-  width:80px;
-  height: 80px;
-  place-items: center;
-  cursor: pointer;
-}
-
-.micbtn:hover {
+/* .micbtn:hover {
   opacity: 0.9;
 }
 
 .micbtn:active {
   opacity: 0.5;
+} */
+
+.micbtn {
+  /* width: 80px;
+  height: 80px; */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.microphone {
+  display: inline-block;
+  /* vertical-align: middle; */
+}
+
+audio {
+  display: inline-block;
+  /* vertical-align: middle; */
 }

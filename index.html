@@ -83,35 +83,38 @@
     background-color: rgb(0, 0, 0);
   }
 
-  .btn:hover {
-    background-color: rgb(161,153,153);
-  }
-
-  button.enabled {
-    opacity: 0.7;
-  }
-
   p {
     font-size: 2rem;
     font-weight: bold;
   }
 
   .micbtn {
-    width: 80px;
-    height: 80px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    place-items: center;
+    display: inline-block;
+  }
+
+  .microphone {
+    display: inline-block;
+  }
+
+  audio {
+    display: inline-block;
   }
 
   </style>
   
   <body>
-    <h1>Tic-Tac-Toe</h1>
+    <h1>&#9829;  TIC-TAC-TOE &#9829;</h1>
 
     <div class="micbtn">
       <img class="microphone" src="microphone.jpeg">
+      <audio controls>
+        <source src="voiceover.mp3" type="audio/mpeg"/>
+      </audio>
     </div>
-
+    <br>
     <div style="display: flex; width: 95vw; position: relative;">
       <p id="userCont">You: <span id="user"></span> </p>
       <p style="position: absolute; right:0;" id="oppNameCont">Opponent: <span id="oppName"></span> </p>
