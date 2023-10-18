@@ -19,7 +19,7 @@ let playingArray=[]
 
 io.on("connection",(socket)=>{ // to get the name of the user
   socket.on("find",(e)=>{
-    if(e.name!=null){ // e is the event objectok to check if name is null
+    if(e.name!=null){ // e is the event object to check if name is null
      
       arr.push(e.name)
 
