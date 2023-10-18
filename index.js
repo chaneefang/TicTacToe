@@ -19,7 +19,7 @@ let playingArray=[]
 
 io.on("connection",(socket)=>{ // to get the name of the user
   socket.on("find",(e)=>{
-    if(e.name!=null){ // e is the event object to check if name is null
+    if(e.name!=null){ // e is the event objectok to check if name is null
      
       arr.push(e.name)
 
@@ -68,11 +68,10 @@ io.on("connection",(socket)=>{ // to get the name of the user
     io.emit("playing",{allPlayers:playingArray})
   })
 
-socket.on("gameOver",(e)=>{ // after game is over, array for two players will be deleted
-  playingArray=playingArray.filter(obj=>obj.p1.p1name!==e.name)
-  console.log(playingArray)
-})
-
+  socket.on("gameOver",(e)=>{ // after game is over, array for two players will be deleted
+    playingArray=playingArray.filter(obj=>obj.p1.p1name!==e.name)
+    console.log(playingArray)
+  })
 })
 
 app.get("/",(req,res)=>{
@@ -80,6 +79,5 @@ app.get("/",(req,res)=>{
 });
 
 server.listen(3000,()=>{
-  console.log("port connected to 3000");
+  console.log("port connected to 3000"); // nodemon index
 });
-
