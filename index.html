@@ -162,16 +162,16 @@
   <script src="./node_modules/socket.io/client-dist/socket.io.js"></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function(){
+     document.addEventListener("DOMContentLoaded", function(){
 
       const socket=io();
       
-    document.getElementById("loading").style.display="none"
-    document.getElementById("bigCont").style.display="none"
-    document.getElementById("userCont").style.display="none"
-    document.getElementById("oppNameCont").style.display="none"
-    document.getElementById("valueCont").style.display="none"
-    document.getElementById("whosTurn").style.display="none"
+      document.getElementById("loading").style.display="none"
+      document.getElementById("bigCont").style.display="none"
+      document.getElementById("userCont").style.display="none"
+      document.getElementById("oppNameCont").style.display="none"
+      document.getElementById("valueCont").style.display="none"
+      document.getElementById("whosTurn").style.display="none"
 
     // For click function to store users name
     let name;
@@ -195,7 +195,7 @@
 
   socket.on("find", (e)=>  { // listening for find event data with allPlayers to execute code
 
-}) //additional one to change from the top for DOMContentLoaded
+    }) //additional one to change from the top for DOMContentLoaded
 
   let allPlayersArray = e.allPlayers
   console.log("html",allPlayersArray) // log extracted allPlayersArray to console
@@ -212,6 +212,7 @@ if (name != '') {
     document.getElementById("whosTurn").style.display = "block"
     document.getElementById("whosTurn").innerText = "X's Turn"
 }
+
 
 let oppName
 let value 
@@ -270,6 +271,7 @@ socket.on("playing",(e)=>{
   check(name,foundObject.sum) // to make sure whenever someone clicks button then it will check for winner
 
 })
+
     
   function check(name,sum){
 
@@ -316,6 +318,7 @@ setTimeout(() => {
       }
     }
   })
+
   </script>
 
 </html>
